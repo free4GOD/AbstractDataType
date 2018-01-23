@@ -6,6 +6,7 @@
 package tiposdedatos;
 
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 /**
@@ -13,25 +14,20 @@ import java.util.Scanner;
  * @author Mauricio Sosa Giri
  */
 public class TiposDeDatos {
-
-    Object Node;
-
-    public static void main(String[] args) {
-        TreeFromInput tree = new TreeFromInput();
+    
+    
+    public void main(String[] args) {
+        TreeFromInput tree;
+        tree = new TreeFromInput();
         tree.fillTree(tree);
         tree.printTree(tree);
     }
 
-    public TiposDeDatos() {
+   
 
-    }
-
-    public static class TreeFromInput extends TiposDeDatos {
+    public class TreeFromInput extends TiposDeDatos {
         public TreeFromInput tree;
-        public Node root;
-
-        public TreeFromInput() {
-            root = new Node();
+        Node root = new Node();
         }
 
         /**

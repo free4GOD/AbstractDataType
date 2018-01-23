@@ -6,67 +6,73 @@
 package tiposdedatos;
 
 import java.util.List;
-import java.lang.Object;
+import java.util.ListIterator;
 /**
  *
- * @author Mauricio
+ * @author Mauricio Sosa Giri (free4GOD)
  */
-class Node {
+public class Node<A> {
 
-    public Object data;
-    public List<Node> node;
+    private A value;
+    private List<Node<A>> child;
+    
+    public Node(A value, List<Node<A>> child) {
+       this.child = (List<Node<A>>) child;
+       this.value = value;
+    }
+
     Node() {
-        this.node = (List<Node>) node;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    void value(Object data) {
-        this.data = data;
+    void setValue(A value) {
+        this.value = value;
     }
     
-     Object getValue() {
-        return this.data = data;
+     A getValue() {
+        return this.value;
     }
         
-    void addChild(Node child) {
-        this.node.add(child);
+    void setChild(Node node) {
+        this.child.add(node);
     }
     
-    void delChild(Node child) {
-        this.node.remove(child);
+    void delChild(Node childOfChild) {
+        this.child.remove(childOfChild);
     }
     
-    Node getChilds() {
-        return (Node) this.node.listIterator();
+    ListIterator<Node<A>> getChildren() {
+        return this.child.listIterator();
     }
     
-    Node getNext (Node previous) {
-        int num = this.node.indexOf(previous);
+    ListIterator<Node<A>> getNext (ListIterator<Node<A>> previous) {
+        int num = this.child.indexOf(previous);
         num = num++;
-        if (num != -1 && num <= this.node.size()) {
-            return (Node) this.node.get(num);
+        if (num != -1 && num <= this.child.size()) {
+            return (ListIterator<Node<A>>) this.child.get(num);
         } else {
             return null;
         }
     }
     
-    Node getSpecific (int num) {
-        return (Node) node.get(num);
+    ListIterator<Node<A>> getSpecific (int num) {
+        return (ListIterator<Node<A>>) this.child.get(num);
     }
     
-    Node getBefore (Node actual) {
-        int index = node.indexOf(actual);
+    ListIterator<Node<A>> getBefore (ListIterator<Node<A>> actual) {
+        int index = this.child.indexOf(actual);
         if (index >= 0) {
-            return (Node) node.get(index-1);
+            return (ListIterator<Node<A>>) this.child.get(index-1);
         }
         return null;
     }
     
-    Node getRoot () {
-        return (Node) node.get(0);
+    ListIterator<Node<A>> getRoot () {
+        return (ListIterator<Node<A>>) this.child.get(0);
     }
     
-    Node getLast () {
-        int last = node.size();
-        return (Node) node.get(last);
+    ListIterator<Node<A>> getLast () {
+        int last = this.child.size();
+        return (ListIterator<Node<A>>) this.child.get(last);
     }
 } 
