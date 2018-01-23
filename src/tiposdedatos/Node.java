@@ -11,7 +11,7 @@ import java.util.ListIterator;
  *
  * @author Mauricio Sosa Giri (free4GOD)
  */
-public class Node<A> {
+public class Node<A> extends TiposDeDatos {
 
     private A value;
     private List<Node<A>> child;
